@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+address {
+  display: inline;
+}
+
+body {
+  font-family: sans-serif;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background-color: #353535;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #ccc;
+  font-weight: bold;
+
+  & .active-profile-photo {
+    border-radius: 50%;
+  }
+}
+
+@media screen and (width <= 700px) {
+  header .active-profile-photo, header nav {
+    display: none;
+  }
+
+  header {
+    justify-content: center;
+  }
+}
+
+header nav ul {
+  display: flex;
+  gap: 2rem;
+  text-transform: capitalize;
+}
+
+fieldset {
+  border: none;
+  border-top: 1px solid #acacac;
+}
+
+legend {
+  text-transform: uppercase;
+  color: #acacac;
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem 0;
+  gap: 3rem;
+  max-width: 75vw;
+  justify-self: center;
+}
+
+aside {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+aside .cards {
+  display: grid;
+  gap: 1rem;
+}
+
+aside .card {
+  display: grid;
+  gap: 1rem;
+}
+
+.main-content {
+  flex: 3;
+  display: grid;
+  gap: 1rem;
+}
+
+.main-content main {
+  display: grid;
+  gap: 1rem;
+}
+
+.main-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.main-title h1 {
+  font-size: 2em;
+}
+
+.main-title span {
+  color: #7cc1f8;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.informations {
+  display: grid;
+  gap: 1rem;
+}
+
+.informations fieldset {
+  display: grid;
+  gap: 0.5rem;
+   & a {
+    color: #4285f4;
+   }
+
+   & a:hover {
+    text-decoration: underline;
+   }
+}
+
+.informations fieldset label {
+  font-weight: bold;
+}
