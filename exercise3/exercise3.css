@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+  border: 0;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  width: 15rem;
+
+  & .button-text {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: medium;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+button:hover {
+  filter: brightness(0.85);
+}
+
+button:focus {
+  float: right;
+}
+
+.button-icon {
+  background-color: #2c81da;
+  padding: 1rem;
+}
+
+
