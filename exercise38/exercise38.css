@@ -504,7 +504,7 @@ body:before {
   z-index: 1;
   right: 8px;
 }
-.video:hover video {
+.video:hover img {
   transform: scale(1.6);
   transform-origin: center;
 }
@@ -532,6 +532,14 @@ body:before {
   border-color: var(--video-bg);
 }
 video {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  display: block;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.video-test {
   max-width: 100%;
   width: 100%;
   border-radius: 20px 20px 0 0;
