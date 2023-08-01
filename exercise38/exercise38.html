@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="light">
 
 <head>
     <meta charset="UTF-8">
@@ -10,275 +10,256 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="app-container">
         <!-- SIDEBAR -->
         <div class="sidebar">
-            <span class="logo">S</span>
-            <a class="logo-expand" href="#">Ravin</a>
-            <div class="side-wrapper">
-                <div class="side-title">MENU</div>
-                <div class="side-menu">
-                    <a class="sidebar-link discover is-active" href="#">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M9.135 20.773v-3.057c0-.78.637-1.414 1.423-1.414h2.875c.377 0 .74.15 1.006.414.267.265.417.625.417 1v3.057c-.002.325.126.637.356.867.23.23.544.36.87.36h1.962a3.46 3.46 0 002.443-1 3.41 3.41 0 001.013-2.422V9.867c0-.735-.328-1.431-.895-1.902l-6.671-5.29a3.097 3.097 0 00-3.949.072L3.467 7.965A2.474 2.474 0 002.5 9.867v8.702C2.5 20.464 4.047 22 5.956 22h1.916c.68 0 1.231-.544 1.236-1.218l.027-.009z" />
-                        </svg>
-                        Produtos
-                    </a>
-                    <a class="sidebar-link trending" href="#">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M11.23 7.29V3.283c0-.427.34-.782.77-.782.385 0 .711.298.763.677l.007.104v4.01h4.78c2.38 0 4.335 1.949 4.445 4.38l.005.215v5.04c0 2.447-1.887 4.456-4.232 4.569l-.208.005H6.44c-2.38 0-4.326-1.94-4.435-4.379L2 16.905v-5.03c0-2.447 1.878-4.466 4.222-4.58l.208-.004h4.8v6.402l-1.6-1.652a.755.755 0 00-1.09 0 .81.81 0 00-.22.568c0 .157.045.32.14.459l.08.099 2.91 3.015c.14.155.34.237.55.237a.735.735 0 00.465-.166l.075-.071 2.91-3.015c.3-.31.3-.816 0-1.126a.755.755 0 00-1.004-.077l-.086.077-1.59 1.652V7.291h-1.54z" />
-                        </svg>
-                        Pedidos
-                    </a>
+            <div class="sidebar-header">
+                <div class="app-icon">
+                    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor"
+                            d="M507.606 371.054a187.217 187.217 0 00-23.051-19.606c-17.316 19.999-37.648 36.808-60.572 50.041-35.508 20.505-75.893 31.452-116.875 31.711 21.762 8.776 45.224 13.38 69.396 13.38 49.524 0 96.084-19.286 131.103-54.305a15 15 0 004.394-10.606 15.028 15.028 0 00-4.395-10.615zM27.445 351.448a187.392 187.392 0 00-23.051 19.606C1.581 373.868 0 377.691 0 381.669s1.581 7.793 4.394 10.606c35.019 35.019 81.579 54.305 131.103 54.305 24.172 0 47.634-4.604 69.396-13.38-40.985-.259-81.367-11.206-116.879-31.713-22.922-13.231-43.254-30.04-60.569-50.039zM103.015 375.508c24.937 14.4 53.928 24.056 84.837 26.854-53.409-29.561-82.274-70.602-95.861-94.135-14.942-25.878-25.041-53.917-30.063-83.421-14.921.64-29.775 2.868-44.227 6.709-6.6 1.576-11.507 7.517-11.507 14.599 0 1.312.172 2.618.512 3.885 15.32 57.142 52.726 100.35 96.309 125.509zM324.148 402.362c30.908-2.799 59.9-12.454 84.837-26.854 43.583-25.159 80.989-68.367 96.31-125.508.34-1.267.512-2.573.512-3.885 0-7.082-4.907-13.023-11.507-14.599-14.452-3.841-29.306-6.07-44.227-6.709-5.022 29.504-15.121 57.543-30.063 83.421-13.588 23.533-42.419 64.554-95.862 94.134zM187.301 366.948c-15.157-24.483-38.696-71.48-38.696-135.903 0-32.646 6.043-64.401 17.945-94.529-16.394-9.351-33.972-16.623-52.273-21.525-8.004-2.142-16.225 2.604-18.37 10.605-16.372 61.078-4.825 121.063 22.064 167.631 16.325 28.275 39.769 54.111 69.33 73.721zM324.684 366.957c29.568-19.611 53.017-45.451 69.344-73.73 26.889-46.569 38.436-106.553 22.064-167.631-2.145-8.001-10.366-12.748-18.37-10.605-18.304 4.902-35.883 12.176-52.279 21.529 11.9 30.126 17.943 61.88 17.943 94.525.001 64.478-23.58 111.488-38.702 135.912zM266.606 69.813c-2.813-2.813-6.637-4.394-10.615-4.394a15 15 0 00-10.606 4.394c-39.289 39.289-66.78 96.005-66.78 161.231 0 65.256 27.522 121.974 66.78 161.231 2.813 2.813 6.637 4.394 10.615 4.394s7.793-1.581 10.606-4.394c39.248-39.247 66.78-95.96 66.78-161.231.001-65.256-27.511-121.964-66.78-161.231z" />
+                    </svg>
                 </div>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-home">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="sidebar-list-item active">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-shopping-bag">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                        <span>Produtos</span>
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-pie-chart">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                            <path d="M22 12A10 10 0 0 0 12 2v10z" />
+                        </svg>
+                        <span>Estatisticas</span>
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-inbox">
+                            <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
+                            <path
+                                d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+                        </svg>
+                        <span>Inbox</span>
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-bell">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                        </svg>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="account-info">
+                <div class="account-info-picture">
+                    <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+                        alt="Account">
+                </div>
+                <div class="account-info-name">Monica G.</div>
+                <button class="account-info-more">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-more-horizontal">
+                        <circle cx="12" cy="12" r="1" />
+                        <circle cx="19" cy="12" r="1" />
+                        <circle cx="5" cy="12" r="1" />
+                    </svg>
+                </button>
             </div>
         </div>
 
-        <div class="wrapper">
-            <!-- HEADER -->
-            <div class="header">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search">
-                </div>
-                <div class="user-settings">
-                    <img class="user-img"
-                        src="https://images.unsplash.com/photo-1587918842454-870dbd18261a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=943&q=80"
-                        alt="">
-                    <div class="user-name">Conta</div>
-                    <svg viewBox="0 0 492 492" fill="currentColor">
-                        <path
-                            d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z">
-                        </path>
+        <!-- MAIN -->
+        <div class="app-content">
+            <!-- CONTENT HEADER -->
+            <div class="app-content-header">
+                <h1 class="app-content-headerText">Produtos</h1>
+                <button class="mode-switch" title="Switch Theme">
+                    <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                        <defs></defs>
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
                     </svg>
-                    <div class="notify">
-                        <div class="notification"></div>
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M18.707 8.796c0 1.256.332 1.997 1.063 2.85.553.628.73 1.435.73 2.31 0 .874-.287 1.704-.863 2.378a4.537 4.537 0 01-2.9 1.413c-1.571.134-3.143.247-4.736.247-1.595 0-3.166-.068-4.737-.247a4.532 4.532 0 01-2.9-1.413 3.616 3.616 0 01-.864-2.378c0-.875.178-1.682.73-2.31.754-.854 1.064-1.594 1.064-2.85V8.37c0-1.682.42-2.781 1.283-3.858C7.861 2.942 9.919 2 11.956 2h.09c2.08 0 4.204.987 5.466 2.625.82 1.054 1.195 2.108 1.195 3.745v.426zM9.074 20.061c0-.504.462-.734.89-.833.5-.106 3.545-.106 4.045 0 .428.099.89.33.89.833-.025.48-.306.904-.695 1.174a3.635 3.635 0 01-1.713.731 3.795 3.795 0 01-1.008 0 3.618 3.618 0 01-1.714-.732c-.39-.269-.67-.694-.695-1.173z" />
-                        </svg>
+                </button>
+                <button class="btn">Add Product</button>
+            </div>
+            <div class="app-content-actions">
+                <input id="searchBar" class="search-bar" placeholder="Search..." type="text">
+                <div class="app-content-actions-wrapper">
+                    <div id="filterButtonWrapper" class="filter-button-wrapper">
+                        <button class="action-button filter jsFilter">
+                            <span>Filter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-filter">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                            </svg>
+                        </button>
+                        <div class="filter-menu">
+                            <label>Category</label>
+                            <select>
+                                <option>All Categories</option>
+                                <option>Furniture</option>
+                                <option>Decoration</option>
+                                <option>Kitchen</option>
+                                <option>Bathroom</option>
+                            </select>
+                            <label>Status</label>
+                            <select>
+                                <option>All Status</option>
+                                <option>Active</option>
+                                <option>Disabled</option>
+                            </select>
+                            <div class="filter-menu-buttons">
+                                <button class="filter-button reset">
+                                    Reset
+                                </button>
+                                <button class="filter-button apply">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
                     </div>
+                    <button class="action-button list" title="List View">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-list">
+                            <line x1="8" y1="6" x2="21" y2="6" />
+                            <line x1="8" y1="12" x2="21" y2="12" />
+                            <line x1="8" y1="18" x2="21" y2="18" />
+                            <line x1="3" y1="6" x2="3.01" y2="6" />
+                            <line x1="3" y1="12" x2="3.01" y2="12" />
+                            <line x1="3" y1="18" x2="3.01" y2="18" />
+                        </svg>
+                    </button>
+                    <button class="action-button grid active" title="Grid View">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-grid">
+                            <rect x="3" y="3" width="7" height="7" />
+                            <rect x="14" y="3" width="7" height="7" />
+                            <rect x="14" y="14" width="7" height="7" />
+                            <rect x="3" y="14" width="7" height="7" />
+                        </svg>
+                    </button>
                 </div>
             </div>
 
-            <!-- MAIN -->
-            <div class="main-container">
-                <div class="main-header anim" style="--delay: 0s">Menu</div>
+            <!-- PRODUCTS -->
+            <div class="products-area-wrapper gridView active">
+                <div class="products-row">
+                    <button class="cell-more-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-more-vertical">
+                            <circle cx="12" cy="12" r="1" />
+                            <circle cx="12" cy="5" r="1" />
+                            <circle cx="12" cy="19" r="1" />
+                        </svg>
+                    </button>
+                    <div class="product-cell image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                            alt="product">
+                        <span>Burguer</span>
+                    </div>
+                    <div class="product-cell"><span class="cell-label">Categoria:</span>Lanches</div>
+                    <div class="product-cell"><span class="cell-label">Preço:</span>R$ 15.00</div>
+                    <div class="product-cell"><button type="button" class="btn">Adicionar</button></div>
+                </div>
+            </div>
 
-                <!-- DISCOUNTS -->
-                <div class="main-blogs">
-                    <div class="main-blog anim" style="--delay: .1s">
-                        <div class="main-blog__title">Produtos com descontos de até 15%</div>
-                        <span class="author-name">Aniversáriantes ganham 5% de desconto</span>
+            <!-- ORDERS -->
+            <div class="products-area-wrapper tableView">
+                <!-- ORDERS HEADER -->
+                <div class="products-header">
+                    <div class="product-cell image">
+                        Itens
+                        <button class="sort-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
+                            </svg>
+                        </button>
                     </div>
-                    
-                    <div class="main-blog anim" style="--delay: .2s">
-                        <div class="main-blog__title">Reserve sua mesa agora mesmo</div>
-                    </div>
+                    <div class="product-cell status-cell">Status<button class="sort-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
+                            </svg>
+                        </button></div>
+                    <div class="product-cell stock">Quantidade<button class="sort-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
+                            </svg>
+                        </button></div>
+                    <div class="product-cell price">Preço<button class="sort-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
+                            </svg>
+                        </button></div>
                 </div>
 
-                <!-- PRODUCTS -->
-                <div class="small-header anim" style="--delay: .3s">Produtos</div>
-                <div class="videos">
-                    <div class="video anim">
-                        <div class="video-wrapper">
-                            <img class="video-test" src="https://assets.codepen.io/3364143/skate-removebg-preview.png" alt="">
-                        </div>
-                        <div class="video-by">X-Salada</div>
-                        <div class="video-name">Hamburguer bom pra caralho confia</div>
-                        <div class="video-view">R$ 11.90</div>
+                <!-- ORDER ITEMS -->
+                <div class="products-row">
+                    <div class="product-cell image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                            alt="product">
+                        <span>Burguer</span>
                     </div>
+                    <div class="product-cell status-cell">
+                        <span class="status active">Preparando</span>
+                    </div>
+                    <div class="product-cell sales">2</div>
+                    <div class="product-cell price">R$ 30</div>
                 </div>
 
-                <!-- ORDERS -->
-                <div class="stream-area">
-                    <div class="video-stream">
+                <div class="products-row">
+                    <div class="product-cell image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                            alt="product">
+                        <span>Burguer</span>
+                    </div>
+                    <div class="product-cell status-cell">
+                        <span class="status disabled">Pendente</span>
+                    </div>
+                    <div class="product-cell sales">2</div>
+                    <div class="product-cell price">R$ 30</div>
+                </div>
 
-                        <div class="video-detail">
-                            <div class="video-content" style="gap: 1rem; display: grid;">
-                                <div class="video-p-wrapper anim" style="--delay: .1s">
-                                    <div class="author-img__wrapper video-author video-p">
-                                        <img class="author-img"
-                                            src="https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-                                    </div>
-                                    <div class="video-p-detail">
-                                        <div class="video-p-name">X-Salada</div>
-                                        <div class="video-p-sub">R$ 13.90</div>
-                                    </div>
-                                    <div class="button-wrapper" style="gap: 1rem;">
-                                        <button class="like">-</button>
-                                        <div class="chat-vid__name">1</div>
-                                        <button class="like">+</button>
-                                    </div>
-                                </div>
-                                <div class="video-p-wrapper anim" style="--delay: .1s">
-                                    <div class="author-img__wrapper video-author video-p">
-                                        <img class="author-img"
-                                            src="https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-                                    </div>
-                                    <div class="video-p-detail">
-                                        <div class="video-p-name">X-Salada</div>
-                                        <div class="video-p-sub">R$ 13.90</div>
-                                    </div>
-                                    <div class="button-wrapper" style="gap: 1rem;">
-                                        <button class="like">-</button>
-                                        <div class="chat-vid__name">1</div>
-                                        <button class="like">+</button>
-                                    </div>
-                                </div>
-                                <div class="anim" style="--delay: .2s; display: flex; justify-content: space-between; align-items: center;">
-                                    <div class="chat-vid__name">R$ 22.90</div>
-                                    <div class="button-wrapper" style="gap: 1rem;">
-                                        <button class="like red">
-                                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.835 12.007l.002.354c.012 1.404.096 2.657.242 3.451 0 .015.16.802.261 1.064.16.38.447.701.809.905a2 2 0 00.91.219c.249-.012.66-.137.954-.242l.244-.094c1.617-.642 4.707-2.74 5.891-4.024l.087-.09.39-.42c.245-.322.375-.715.375-1.138 0-.379-.116-.758-.347-1.064-.07-.099-.18-.226-.28-.334l-.379-.397c-1.305-1.321-4.129-3.175-5.593-3.79 0-.013-.91-.393-1.343-.407h-.057c-.665 0-1.286.379-1.603.991-.087.168-.17.496-.233.784l-.114.544c-.13.874-.216 2.216-.216 3.688zm-6.332-1.525C3.673 10.482 3 11.162 3 12a1.51 1.51 0 001.503 1.518l3.7-.328c.65 0 1.179-.532 1.179-1.19 0-.658-.528-1.191-1.18-1.191l-3.699-.327z" />
-                                               </svg>
-                                            Fazer pedido
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chat-stream">
-                        <div class="chat">
-                            <div class="chat-header anim">Avaliações
-                                <span>
-                                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M14.212 7.762c0 2.644-2.163 4.763-4.863 4.763-2.698 0-4.863-2.119-4.863-4.763C4.486 5.12 6.651 3 9.35 3c2.7 0 4.863 2.119 4.863 4.762zM2 17.917c0-2.447 3.386-3.06 7.35-3.06 3.985 0 7.349.634 7.349 3.083 0 2.448-3.386 3.06-7.35 3.06C5.364 21 2 20.367 2 17.917zM16.173 7.85a6.368 6.368 0 01-1.137 3.646c-.075.107-.008.252.123.275.182.03.369.048.56.052 1.898.048 3.601-1.148 4.072-2.95.697-2.675-1.35-5.077-3.957-5.077a4.16 4.16 0 00-.818.082c-.036.008-.075.025-.095.055-.025.04-.007.09.019.124a6.414 6.414 0 011.233 3.793zm3.144 5.853c1.276.245 2.115.742 2.462 1.467a2.107 2.107 0 010 1.878c-.531 1.123-2.245 1.485-2.912 1.578a.207.207 0 01-.234-.232c.34-3.113-2.367-4.588-3.067-4.927-.03-.017-.036-.04-.034-.055.002-.01.015-.025.038-.028 1.515-.028 3.145.176 3.747.32z" />
-                                    </svg>
-                                    15,988 pessoas
-                                </span>
-                            </div>
-                            <div class="message-container">
-                                <div class="message anim" style="--delay: .1s">
-                                    <div class="author-img__wrapper video-author video-p">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-check">
-                                            <path d="M20 6L9 17l-5-5" />
-                                        </svg>
-                                        <img class="author-img"
-                                            src="https://images.unsplash.com/photo-1560941001-d4b52ad00ecc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" />
-                                    </div>
-                                    <div class="msg-wrapper">
-                                        <div class="msg__name video-p-name"> Wijaya Adabi</div>
-                                        <div class="msg__content video-p-sub"> Lorem ipsum clor sit, ame conse quae
-                                            debitis</div>
-                                    </div>
-                                </div>
-                                <div class="message anim" style="--delay: .2s">
-                                    <div class="author-img__wrapper video-author video-p">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-check">
-                                            <path d="M20 6L9 17l-5-5" />
-                                        </svg>
-                                        <img class="author-img"
-                                            src="https://images.pexels.com/photos/2889942/pexels-photo-2889942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-                                    </div>
-                                    <div class="msg-wrapper">
-                                        <div class="msg__name video-p-name offline"> Johny Wise</div>
-                                        <div class="msg__content video-p-sub"> Suscipit eos atque voluptates labore
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="message anim" style="--delay: .3s">
-                                    <div class="author-img__wrapper video-author video-p">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-check">
-                                            <path d="M20 6L9 17l-5-5" />
-                                        </svg>
-                                        <img class="author-img"
-                                            src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fG1lbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
-                                    </div>
-                                    <div class="msg-wrapper">
-                                        <div class="msg__name video-p-name offline"> Budi Hakim</div>
-                                        <div class="msg__content video-p-sub">Dicta quidem sunt adipisci</div>
-                                    </div>
-                                </div>
-                                <div class="message anim" style="--delay: .4s">
-                                    <div class="author-img__wrapper video-author video-p">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-check">
-                                            <path d="M20 6L9 17l-5-5" />
-                                        </svg>
-                                        <img class="author-img"
-                                            src="https://images.pexels.com/photos/1870163/pexels-photo-1870163.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-                                    </div>
-                                    <div class="msg-wrapper">
-                                        <div class="msg__name video-p-name"> Thomas Hope</div>
-                                        <div class="msg__content video-p-sub"> recusandae doloremque aperiam alias
-                                            molestias</div>
-                                    </div>
-                                </div>
-                                <div class="message anim" style="--delay: .5s">
-                                    <div class="author-img__wrapper video-author video-p">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-check">
-                                            <path d="M20 6L9 17l-5-5" />
-                                        </svg>
-                                        <img class="author-img"
-                                            src="https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-                                    </div>
-                                    <div class="msg-wrapper">
-                                        <div class="msg__name video-p-name"> Gerard Will</div>
-                                        <div class="msg__content video-p-sub">Dicta quidem sunt adipisci</div>
-                                    </div>
-                                </div>
-                                <div class="message anim" style="--delay: .6s">
-                                    <div class="author-img__wrapper video-author video-p">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-check">
-                                            <path d="M20 6L9 17l-5-5" />
-                                        </svg>
-                                        <img class="author-img"
-                                            src="https://images.pexels.com/photos/2889942/pexels-photo-2889942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-                                    </div>
-                                    <div class="msg-wrapper">
-                                        <div class="msg__name video-p-name offline">Johny Wise</div>
-                                        <div class="msg__content video-p-sub"> recusandae doloremque aperiam alias
-                                            molestias</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-footer anim" style="--delay: .1s">
-                                <input type="text" placeholder="Escreva sua avaliação">
-                            </div>
-                        </div>
-                        <div class="chat-vid__container">
-                            <div class="chat-vid__title anim" style="--delay: .3s">Sugestões</div>
-                            <div class="chat-vid anim" style="--delay: .4s">
-                                <div class="chat-vid__wrapper">
-                                    <img class="chat-vid__img"
-                                        src="https://cdn.nohat.cc/thumb/f/720/3b55eddcfffa4e87897d.jpg" />
-                                    <div class="chat-vid__content">
-                                        <div class="chat-vid__name">Suco de laranja hm</div>
-                                        <div class="chat-vid__info">R$ 2.50</div>
-                                        <div class="chat-vid__button anim" style="--delay: .6s; margin-top: 5px;">Adicionar</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-vid anim" style="--delay: .4s">
-                                <div class="chat-vid__wrapper">
-                                    <img class="chat-vid__img"
-                                        src="https://cdn.nohat.cc/thumb/f/720/3b55eddcfffa4e87897d.jpg" />
-                                    <div class="chat-vid__content">
-                                        <div class="chat-vid__name">Suco de laranja hm</div>
-                                        <div class="chat-vid__info">R$ 2.50</div>
-                                        <div class="chat-vid__button anim" style="--delay: .6s; margin-top: 5px;">Adicionar</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-vid__button anim" style="--delay: .6s">See All related videos (32)</div>
-                        </div>
-                    </div>
+                <div>
+                    <span>Total: R$ 60</span>
+                    <button class="btn finish-purchase">Finalizar compra</button>
                 </div>
             </div>
         </div>
