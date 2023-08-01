@@ -546,21 +546,28 @@ body {
 	margin-right: 6px;
 }
 
+.tableView .finish-purchase-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 16px;
+}
+
+.tableView .finish-purchase-wrapper .finish-purchase-price {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 500;
+}
+
 @media screen and (max-width: 780px) {
 	.tableView .product-cell {
 		font-size: 12px;
 	}
-	.tableView .product-cell.image span {
-		display: none;
-	}
-	.tableView .product-cell.image {
-		flex: 0.2;
-	}
 }
 
 @media screen and (max-width: 520px) {
-	.tableView .product-cell.category,
-	.tableView .product-cell.sales {
+	.tableView .product-cell.category {
 		display: none;
 	}
 	.tableView .product-cell.status-cell {
@@ -573,10 +580,13 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-	.tableView .product-cell.stock {
+	.tableView .product-cell.status-cell {
 		display: none;
 	}
 	.tableView .product-cell.price {
+		flex: 0.4;
+	}
+	.tableView .product-cell.image {
 		flex: 0.4;
 	}
 }
