@@ -1,0 +1,10 @@
+.app-icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-header {
+    display: flex;
+    align-items: center;
+}
