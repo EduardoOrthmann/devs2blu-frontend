@@ -672,7 +672,6 @@ body {
 	background-color: var(--app-content-secondary-color);
 	padding: 8px;
 	border-radius: 4px;
-	cursor: pointer;
 	transition: transform 0.2s;
 	position: relative;
 }
@@ -746,17 +745,28 @@ body {
 	line-height: 24px;
 }
 
+.gridView .product-cell.image .product-image {
+	display: grid;
+}
+
 .gridView .product-description {
 	display: none;
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 5;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	margin-bottom: 8px;
+	position: absolute;
+	color: #fff;
+	font-size: 14px !important;
+	margin: 6px;
 }
 
 .gridView .product-cell.image:hover .product-description {
 	display: -webkit-box;
+}
+
+.gridView .product-cell.image:hover img {
+	filter: blur(2px) brightness(0.4);
 }
 
 .gridView .product-cell img {
@@ -765,6 +775,7 @@ body {
 	object-fit: cover;
 	border-radius: 4px;
 	margin-bottom: 16px;
+	transition: filter 0.2s;
 }
 
 .gridView .cell-label {
