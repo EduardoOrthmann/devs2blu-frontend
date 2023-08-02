@@ -746,6 +746,19 @@ body {
 	line-height: 24px;
 }
 
+.gridView .product-description {
+	display: none;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: 8px;
+}
+
+.gridView .product-cell.image:hover .product-description {
+	display: -webkit-box;
+}
+
 .gridView .product-cell img {
 	width: 100%;
 	height: 140px;
