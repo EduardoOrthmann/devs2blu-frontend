@@ -248,6 +248,11 @@ body {
 	padding: 0 4px;
 }
 
+html.user .app-content-header .add-product-btn,
+html.user .products-row .cell-more-button {
+	display: none !important;
+}
+
 .app-content-headerText {
 	color: var(--app-content-main-color);
 	font-size: var(--font-large);
@@ -388,6 +393,10 @@ body {
 	visibility: hidden;
 	opacity: 0;
 	transition: 0.2s;
+}
+
+.filter-menu .filter-product-input {
+	text-transform: capitalize;
 }
 
 .filter-menu:before {

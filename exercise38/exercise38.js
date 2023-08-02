@@ -1,4 +1,4 @@
-// TOGGLES
+// EVENTS
 document.querySelector(".jsFilter").addEventListener("click", () => {
   document.querySelector(".filter-menu").classList.toggle("active");
 });
@@ -50,6 +50,30 @@ window.addEventListener('resize', () => {
   }
 });
 
+document.addEventListener('DOMContentLoaded', async () => {
+  const products = await getProducts();
+  filterProducts();
+  renderCategories(products);
+});
+
+document.querySelector('#filterApplyBtn').addEventListener('click', async () => {
+  filterProducts();
+});
+
+document.querySelector('#filterResetBtn').addEventListener('click', async () => {
+  document.querySelector('#filterProductInput').value = 'all';
+  filterProducts();
+});
+
+document.querySelector('#searchBar').addEventListener('keyup', async () => {
+  const products = await filterProducts();
+  const search = document.querySelector('#searchBar').value;
+
+  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+  renderProducts(filteredProducts);
+});
+
+// API
 const apiURL = 'https://64b70d31df0839c97e166026.mockapi.io/api/products';
 
 async function getProducts() {
@@ -107,35 +131,26 @@ async function filterProducts() {
 
   if (filter === 'all') {
     renderProducts(products);
-    return;
+    return products;
   }
 
   const filteredProducts = products.filter(product => product.category === filter);
   renderProducts(filteredProducts);
+
+  return filteredProducts;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  filterProducts();
-});
+async function renderCategories(products) {
+  const categories = products.map(product => product.category);
+  const uniqueCategories = [...new Set(categories)];
 
-document.querySelector('#filterApplyBtn').addEventListener('click', async () => {
-  filterProducts();
-});
+  const filterProductInput = document.querySelector('#filterProductInput');
+  uniqueCategories.forEach((category) => {
+    const option = document.createElement('option');
 
-document.querySelector('#filterResetBtn').addEventListener('click', async () => {
-  document.querySelector('#filterProductInput').value = 'all';
-  filterProducts();
-});
+    option.value = category;
+    option.innerText = category + 's';
 
-document.querySelector('#searchBar').addEventListener('keyup', async () => {
-  const products = await getProducts();
-  const search = document.querySelector('#searchBar').value;
-
-  if (search === '') {
-    renderProducts(products);
-    return;
-  }
-
-  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
-  renderProducts(filteredProducts);
-});
+    filterProductInput.appendChild(option);
+  });
+}
