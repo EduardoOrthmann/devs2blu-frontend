@@ -780,7 +780,7 @@ html.user .products-row .cell-more-button {
   display: -webkit-box;
 }
 
-.gridView .product-cell.image:not(.dialog-content .product-cell) img:hover {
+.gridView .product-cell.image:hover:not(.dialog-content .product-cell) img {
   filter: blur(2px) brightness(0.4);
 }
 
@@ -959,7 +959,6 @@ dialog.dialog .dialog-footer button {
   font-weight: bold;
   padding: 12px;
 }
-
 
 dialog.dialog::backdrop {
   background-color: rgba(0, 0, 0, 0);

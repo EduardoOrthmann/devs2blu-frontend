@@ -120,18 +120,15 @@ document
   });
 
 // DIALOG
-const dialog = document.querySelector('#productDialog');
-dialog.addEventListener('click', () => {
+document.querySelector('#productDialog').addEventListener('click', () => {
   setCloseModal();
 });
 
-const dialogBody = document.querySelector('#dialogBody');
-dialogBody.addEventListener('click', (event) => {
+document.querySelector('#dialogBody').addEventListener('click', (event) => {
   event.stopPropagation();
 });
 
-const productDialogCloseBtn = document.getElementById('productDialogCloseBtn');
-productDialogCloseBtn.addEventListener('click', () => {
+document.getElementById('productDialogCloseBtn').addEventListener('click', () => {
   setCloseModal();
 });
 
