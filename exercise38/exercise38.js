@@ -100,6 +100,25 @@ document.querySelector('#associatedTableBtn').addEventListener('click', () => {
   showAssociatedTable();
 });
 
+document.querySelector('#addOrderBtn').addEventListener('click', async () => {
+  const productId = document.querySelector('#addOrderBtn').dataset.productId;
+  const quantity = document.querySelector('#addOrderBtn').dataset.quantity;
+
+  const order = {
+    productId,
+    quantity: Number(quantity),
+  };
+
+  postOrder(order);
+});
+
+document
+  .querySelector('#productDialogQuantity')
+  .addEventListener('change', () => {
+    const quantity = document.querySelector('#productDialogQuantity').value;
+    document.querySelector('#addOrderBtn').dataset.quantity = quantity;
+  });
+
 // DIALOG
 const dialog = document.querySelector('#productDialog');
 dialog.addEventListener('click', () => {
@@ -121,23 +140,29 @@ function setCloseModal() {
   const dialog = document.getElementById('productDialog');
   dialog.addEventListener('transitionend', closeModal);
   dialog.classList.remove('active');
-};
+}
 
 function closeModal() {
   const dialog = document.getElementById('productDialog');
   dialog.removeEventListener('transitionend', closeModal);
   dialog.close();
-};
+}
 
 function openProductDialog(product) {
   const dialog = document.querySelector('#productDialog');
   const dialogTitle = document.querySelector('#productDialogTitle');
   const dialogDescription = document.querySelector('#productDialogDescription');
   const productDialogImage = document.querySelector('#productDialogImage');
+  const addOrderBtn = document.querySelector('#addOrderBtn');
+  const productDialogQuantity = document.querySelector(
+    '#productDialogQuantity'
+  );
 
   dialogTitle.innerText = product.name;
   dialogDescription.innerText = product.description;
   productDialogImage.src = product.image;
+  addOrderBtn.dataset.productId = product.id;
+  addOrderBtn.dataset.quantity = productDialogQuantity.value;
 
   dialog.showModal();
   dialog.classList.add('active');
@@ -153,11 +178,11 @@ function showAssociatedTable() {
 }
 
 // API
-const apiURL = 'https://64b70d31df0839c97e166026.mockapi.io/api/products';
+const apiURL = 'https://64b70d31df0839c97e166026.mockapi.io/api';
 
 async function getProducts() {
   try {
-    const response = await fetch(apiURL);
+    const response = await fetch(`${apiURL}/products`);
     const products = await response.json();
     return products;
   } catch (error) {
@@ -260,4 +285,52 @@ async function renderCategories(products) {
 
     filterProductInput.appendChild(option);
   });
+}
+
+async function getProduct(id) {
+  try {
+    const response = await fetch(`${apiURL}/products/${id}`);
+    const order = await response.json();
+    return order;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+async function getOrders() {
+  try {
+    const response = await fetch(`${apiURL}/orders`);
+    const orders = await response.json();
+    return orders;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+async function postOrder(order) {
+  try {
+    const product = await getProduct(order.productId);
+
+    const response = await fetch(`${apiURL}/orders`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        product: product,
+        quantity: order.quantity,
+        status: 'pendente',
+        total_price: product.price * order.quantity,
+      }),
+    });
+
+    if (getOrders().length !== 0) document.querySelector('.list').click();
+  } catch (error) {
+    console.error(error);
+    alert('Erro ao adicionar pedido');
+  } finally {
+    closeModal();
+  }
 }
