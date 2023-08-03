@@ -560,6 +560,11 @@ html.user .products-row .cell-more-button {
   margin-right: 6px;
 }
 
+.tableView .product-cell.actions button {
+  display: grid;
+  place-items: center;
+}
+
 .tableView .finish-purchase-wrapper {
   display: flex;
   flex-direction: column;
@@ -582,9 +587,6 @@ html.user .products-row .cell-more-button {
 }
 
 @media screen and (max-width: 520px) {
-  .tableView .product-cell.category {
-    display: none;
-  }
   .tableView .product-cell.status-cell {
     flex: 0.4;
   }
