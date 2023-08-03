@@ -1,26 +1,34 @@
 // EVENTS
-document.querySelector(".jsFilter").addEventListener("click", () => {
-  document.querySelector(".filter-menu").classList.toggle("active");
+document.querySelector('.jsFilter').addEventListener('click', () => {
+  document.querySelector('.filter-menu').classList.toggle('active');
 });
 
-document.querySelector(".grid").addEventListener("click", () => {
-  document.querySelector(".list").classList.remove("active");
-  document.querySelector(".grid").classList.add("active");
-  document.querySelector(".products-area-wrapper.gridView").classList.add("active");
-  document.querySelector(".products-area-wrapper.tableView").classList.remove("active");
+document.querySelector('.grid').addEventListener('click', () => {
+  document.querySelector('.list').classList.remove('active');
+  document.querySelector('.grid').classList.add('active');
+  document
+    .querySelector('.products-area-wrapper.gridView')
+    .classList.add('active');
+  document
+    .querySelector('.products-area-wrapper.tableView')
+    .classList.remove('active');
 
-  document.querySelector("#filterButtonWrapper").style.display = "";
-  document.querySelector("#searchBar").style.display = "";
+  document.querySelector('#filterButtonWrapper').style.display = '';
+  document.querySelector('#searchBar').style.display = '';
 });
 
-document.querySelector(".list").addEventListener("click", () => {
-  document.querySelector(".list").classList.add("active");
-  document.querySelector(".grid").classList.remove("active");
-  document.querySelector(".products-area-wrapper.gridView").classList.remove("active");
-  document.querySelector(".products-area-wrapper.tableView").classList.add("active");
+document.querySelector('.list').addEventListener('click', () => {
+  document.querySelector('.list').classList.add('active');
+  document.querySelector('.grid').classList.remove('active');
+  document
+    .querySelector('.products-area-wrapper.gridView')
+    .classList.remove('active');
+  document
+    .querySelector('.products-area-wrapper.tableView')
+    .classList.add('active');
 
-  document.querySelector("#filterButtonWrapper").style.display = "none";
-  document.querySelector("#searchBar").style.display = "none";
+  document.querySelector('#filterButtonWrapper').style.display = 'none';
+  document.querySelector('#searchBar').style.display = 'none';
 });
 
 const modeSwitch = document.querySelector('.mode-switch');
@@ -52,25 +60,31 @@ window.addEventListener('resize', () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
   const products = await getProducts();
-  filterProducts();
-  renderCategories(products);
+  await filterProducts();
+  await renderCategories(products);
   showAssociatedTable();
 });
 
-document.querySelector('#filterApplyBtn').addEventListener('click', async () => {
-  filterProducts();
-});
+document
+  .querySelector('#filterApplyBtn')
+  .addEventListener('click', async () => {
+    filterProducts();
+  });
 
-document.querySelector('#filterResetBtn').addEventListener('click', async () => {
-  document.querySelector('#filterProductInput').value = 'all';
-  filterProducts();
-});
+document
+  .querySelector('#filterResetBtn')
+  .addEventListener('click', async () => {
+    document.querySelector('#filterProductInput').value = 'all';
+    filterProducts();
+  });
 
 document.querySelector('#searchBar').addEventListener('keyup', async () => {
   const products = await filterProducts();
   const search = document.querySelector('#searchBar').value;
 
-  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase())
+  );
   renderProducts(filteredProducts);
 });
 
@@ -85,6 +99,49 @@ document.querySelector('#associatedTableBtn').addEventListener('click', () => {
   localStorage.setItem('associatedTable', tableInput.value);
   showAssociatedTable();
 });
+
+// DIALOG
+const dialog = document.querySelector('#productDialog');
+dialog.addEventListener('click', () => {
+  setCloseModal();
+});
+
+const dialogBody = document.querySelector('#dialogBody');
+dialogBody.addEventListener('click', (event) => {
+  event.stopPropagation();
+});
+
+const productDialogCloseBtn = document.getElementById('productDialogCloseBtn');
+productDialogCloseBtn.addEventListener('click', () => {
+  setCloseModal();
+});
+
+// FUNCTIONS
+function setCloseModal() {
+  const dialog = document.getElementById('productDialog');
+  dialog.addEventListener('transitionend', closeModal);
+  dialog.classList.remove('active');
+};
+
+function closeModal() {
+  const dialog = document.getElementById('productDialog');
+  dialog.removeEventListener('transitionend', closeModal);
+  dialog.close();
+};
+
+function openProductDialog(product) {
+  const dialog = document.querySelector('#productDialog');
+  const dialogTitle = document.querySelector('#productDialogTitle');
+  const dialogDescription = document.querySelector('#productDialogDescription');
+  const productDialogImage = document.querySelector('#productDialogImage');
+
+  dialogTitle.innerText = product.name;
+  dialogDescription.innerText = product.description;
+  productDialogImage.src = product.image;
+
+  dialog.showModal();
+  dialog.classList.add('active');
+}
 
 function showAssociatedTable() {
   const associatedTable = localStorage.getItem('associatedTable');
@@ -110,7 +167,11 @@ async function getProducts() {
 }
 
 function renderProducts(products) {
-  const productsArea = document.querySelector('.products-area-wrapper.gridView');
+  const productsArea = document.querySelector(
+    '.products-area-wrapper.gridView'
+  );
+  const dialogElement = productsArea.querySelector('#productDialog');
+
   productsArea.innerHTML = '';
 
   if (products.length === 0) {
@@ -138,12 +199,34 @@ function renderProducts(products) {
         </div>
         <span>${product.name}</span>
     </div>
-    <div class="product-cell"><span class="cell-label">Categoria:</span>${product.category}</div>
-    <div class="product-cell"><span class="cell-label">Preço:</span>R$ ${product.price.toFixed(2)}</div>
-    <div class="product-cell"><button type="button" class="btn">Adicionar</button></div>
+    <div class="product-cell">
+      <span class="cell-label">Categoria:</span>
+      ${product.category}
+    </div>
+    <div class="product-cell">
+      <span class="cell-label">Preço:</span>
+      R$ ${product.price.toFixed(2)}
+    </div>
+    <div class="product-cell">
+      <button data-product-id="${
+        product.id
+      }" type="button" class="btn btn-modalshow">Adicionar</button>
+    </div>
     `;
 
     productsArea.appendChild(productCard);
+  });
+
+  productsArea.appendChild(dialogElement);
+
+  const addOrderButtons = document.querySelectorAll('.btn-modalshow');
+  addOrderButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const productId = button.getAttribute('data-product-id');
+      const product = products.find((p) => p.id === productId);
+
+      openProductDialog(product);
+    });
   });
 }
 
@@ -156,14 +239,16 @@ async function filterProducts() {
     return products;
   }
 
-  const filteredProducts = products.filter(product => product.category === filter);
+  const filteredProducts = products.filter(
+    (product) => product.category === filter
+  );
   renderProducts(filteredProducts);
 
   return filteredProducts;
 }
 
 async function renderCategories(products) {
-  const categories = products.map(product => product.category);
+  const categories = products.map((product) => product.category);
   const uniqueCategories = [...new Set(categories)];
 
   const filterProductInput = document.querySelector('#filterProductInput');
