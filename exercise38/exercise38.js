@@ -60,9 +60,11 @@ window.addEventListener('resize', () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
   const products = await getProducts();
+  const orders = await getOrders();
   await filterProducts();
   await renderCategories(products);
   showAssociatedTable();
+  renderOrders(orders);
 });
 
 document
@@ -128,9 +130,11 @@ document.querySelector('#dialogBody').addEventListener('click', (event) => {
   event.stopPropagation();
 });
 
-document.getElementById('productDialogCloseBtn').addEventListener('click', () => {
-  setCloseModal();
-});
+document
+  .getElementById('productDialogCloseBtn')
+  .addEventListener('click', () => {
+    setCloseModal();
+  });
 
 // FUNCTIONS
 function setCloseModal() {
@@ -310,7 +314,7 @@ async function postOrder(order) {
   try {
     const product = await getProduct(order.productId);
 
-    const response = await fetch(`${apiURL}/orders`, {
+    await fetch(`${apiURL}/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -323,11 +327,53 @@ async function postOrder(order) {
       }),
     });
 
-    if (getOrders().length !== 0) document.querySelector('.list').click();
+    const orders = await getOrders();
+    renderOrders(orders);
+    if (orders.length === 0) document.querySelector('.list').click();
   } catch (error) {
     console.error(error);
     alert('Erro ao adicionar pedido');
   } finally {
     closeModal();
   }
+}
+
+function renderOrders(orders) {
+  const ordersWrapper = document.querySelector('#ordersWrapper');
+
+  ordersWrapper.innerHTML = '';
+
+  if (orders.length === 0) {
+    ordersWrapper.innerHTML = '<p>Nenhum pedido encontrado</p>';
+    return;
+  }
+
+  orders.forEach((order) => {
+    const orderCard = document.createElement('div');
+    orderCard.classList.add('products-row');
+
+    orderCard.innerHTML = `
+    <div class="product-cell image">
+      <img src="${order.product.image}" alt="product">
+      <span>${order.product.name}</span>
+    </div>
+    <div class="product-cell status-cell">
+      <span class="status active ${
+        order.status === 'pendente' ? 'disabled' : null
+      }">${order.status}</span>
+    </div>
+    <div class="product-cell sales">${order.quantity}</div>
+    <div class="product-cell price">R$ ${order.total_price.toFixed(2)}</div>
+    `;
+
+    ordersWrapper.appendChild(orderCard);
+  });
+
+  const ordersTotal = orders.reduce(
+    (total, order) => total + order.total_price,
+    0
+  );
+
+  const ordersTotalElement = document.querySelector('#totalPrice');
+  ordersTotalElement.innerText = `R$ ${ordersTotal.toFixed(2)}`;
 }
