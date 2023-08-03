@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const products = await getProducts();
   filterProducts();
   renderCategories(products);
+  showAssociatedTable();
 });
 
 document.querySelector('#filterApplyBtn').addEventListener('click', async () => {
@@ -74,18 +75,25 @@ document.querySelector('#searchBar').addEventListener('keyup', async () => {
 });
 
 document.querySelector('#associatedTableBtn').addEventListener('click', () => {
+  const tableInput = document.querySelector('#associatedTableInput');
 
-  if (localStorage.getItem('associatedTable')) return;
+  if (tableInput.value === '') {
+    tableInput.focus();
+    return;
+  }
 
-  const associatedTable = document.querySelector('#associatedTable').value;
-  localStorage.setItem('associatedTable', associatedTable);
+  localStorage.setItem('associatedTable', tableInput.value);
+  showAssociatedTable();
+});
 
-  document.querySelector('#associatedTableWrapper').innerHTML = `
-    <h1>Mesa ${associatedTable}</h1>
-  `;
+function showAssociatedTable() {
+  const associatedTable = localStorage.getItem('associatedTable');
+
+  if (associatedTable === null) return;
 
   document.querySelector('#tableInputWrapper').classList.toggle('active');
-});
+  document.querySelector('#associetedTable').innerText = associatedTable;
+}
 
 // API
 const apiURL = 'https://64b70d31df0839c97e166026.mockapi.io/api/products';
