@@ -15,6 +15,8 @@ document.querySelector('.grid').addEventListener('click', () => {
 
   document.querySelector('#filterButtonWrapper').style.display = '';
   document.querySelector('#searchBar').style.display = '';
+
+  document.querySelector('#headerText').innerText = 'Produtos';
 });
 
 document.querySelector('.list').addEventListener('click', () => {
@@ -29,6 +31,8 @@ document.querySelector('.list').addEventListener('click', () => {
 
   document.querySelector('#filterButtonWrapper').style.display = 'none';
   document.querySelector('#searchBar').style.display = 'none';
+
+  document.querySelector('#headerText').innerText = 'Pedidos';
 });
 
 const modeSwitch = document.querySelector('.mode-switch');
