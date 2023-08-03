@@ -73,6 +73,20 @@ document.querySelector('#searchBar').addEventListener('keyup', async () => {
   renderProducts(filteredProducts);
 });
 
+document.querySelector('#associatedTableBtn').addEventListener('click', () => {
+
+  if (localStorage.getItem('associatedTable')) return;
+
+  const associatedTable = document.querySelector('#associatedTable').value;
+  localStorage.setItem('associatedTable', associatedTable);
+
+  document.querySelector('#associatedTableWrapper').innerHTML = `
+    <h1>Mesa ${associatedTable}</h1>
+  `;
+
+  document.querySelector('#tableInputWrapper').classList.toggle('active');
+});
+
 // API
 const apiURL = 'https://64b70d31df0839c97e166026.mockapi.io/api/products';
 

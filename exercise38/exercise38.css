@@ -790,3 +790,57 @@ html.user .products-row .cell-more-button {
 .gridView .cell-label {
 	opacity: 0.6;
 }
+
+/* ASSOCIATED TABLE */
+.products-table {
+	min-height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.products-table #tableInputWrapper {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.products-table #tableInputWrapper.active {
+	display: flex;
+} 
+
+.products-table label {
+	color: var(--app-content-main-color);
+	font-size: var(--font-large);
+}
+
+.products-table .table-input {
+	background-color: var(--app-content-secondary-color);
+	border: 1px solid var(--app-content-secondary-color);
+	color: var(--app-content-main-color);
+	font-size: var(--font-small);
+	line-height: 24px;
+	border-radius: 4px;
+	padding: 0px 10px;
+	height: 32px;
+
+	width: 100%;
+	max-width: 320px;
+	transition: 0.2s;
+}
+
+.table-input::placeholder {
+	color: var(--app-content-main-color);
+}
+
+.table-input:hover {
+	border-color: var(--action-color-hover);
+}
+
+.table-input:focus {
+	outline: none;
+	border-color: var(--action-color);
+}
