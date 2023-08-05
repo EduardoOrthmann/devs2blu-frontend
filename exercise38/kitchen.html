@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="light user">
+<html lang="pt-BR" class="light user kitchen">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ravin</title>
     <link rel="stylesheet" href="exercise38.css" />
-    <script src="exercise38.js" defer></script>
+    <script src="kitchen.js" defer></script>
   </head>
 
   <body>
@@ -43,7 +43,7 @@
               <span>Home</span>
             </a>
           </li>
-          <li class="sidebar-list-item active">
+          <li class="sidebar-list-item">
             <a href="/exercise38/exercise38.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@
               <span>Produtos</span>
             </a>
           </li>
-          <li class="sidebar-list-item">
+          <li class="sidebar-list-item active">
             <a href="/exercise38/kitchen.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@
       <div class="app-content">
         <!-- CONTENT HEADER -->
         <div class="app-content-header">
-          <h1 id="headerText" class="app-content-headerText">Produtos</h1>
+          <h1 id="headerText" class="app-content-headerText">Cozinha</h1>
           <button class="mode-switch" title="Switch Theme">
             <svg
               class="moon"
@@ -135,96 +135,21 @@
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
             </svg>
           </button>
-          <button class="btn add-product-btn">Adicionar Produto</button>
-        </div>
-        <div class="app-content-actions">
-          <input
-            id="searchBar"
-            class="search-bar"
-            placeholder="Procurar..."
-            type="text"
-          />
-          <div class="app-content-actions-wrapper">
-            <div id="filterButtonWrapper" class="filter-button-wrapper">
-              <button class="action-button filter jsFilter">
-                <span>Filtrar</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-filter"
-                >
-                  <polygon
-                    points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"
-                  />
-                </svg>
-              </button>
-              <div class="filter-menu">
-                <label>Categorias</label>
-                <select id="filterProductInput" class="filter-product-input">
-                  <option value="all">Todas Categorias</option>
-                </select>
-                <div class="filter-menu-buttons">
-                  <button id="filterResetBtn" class="filter-button reset">
-                    Reset
-                  </button>
-                  <button id="filterApplyBtn" class="filter-button apply">
-                    Apply
-                  </button>
-                </div>
-              </div>
-            </div>
-            <button class="action-button list" title="List View">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-list"
-              >
-                <line x1="8" y1="6" x2="21" y2="6" />
-                <line x1="8" y1="12" x2="21" y2="12" />
-                <line x1="8" y1="18" x2="21" y2="18" />
-                <line x1="3" y1="6" x2="3.01" y2="6" />
-                <line x1="3" y1="12" x2="3.01" y2="12" />
-                <line x1="3" y1="18" x2="3.01" y2="18" />
-              </svg>
-            </button>
-            <button class="action-button grid active" title="Grid View">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-grid"
-              >
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-            </button>
-          </div>
         </div>
 
-        <!-- PRODUCTS -->
-        <div class="products-area-wrapper gridView active">
+        <!-- ORDERS -->
+        <div class="products-area-wrapper tableView active">
+          <!-- ORDERS HEADER -->
+          <div class="products-header">
+            <div class="product-cell image">Item</div>
+            <div class="product-cell status-cell">Status</div>
+            <div class="product-cell stock">Quantidade</div>
+            <div class="product-cell actions">Ações</div>
+          </div>
+
+          <!-- ORDER ITEMS -->
+          <div id="ordersWrapper"></div>
+
           <!-- DIALOG -->
           <dialog id="productDialog" class="dialog">
             <div id="dialogBody" class="dialog-body">
@@ -232,24 +157,14 @@
                 <h2 id="productDialogTitle" class="app-content-headerText"></h2>
               </header>
               <div class="dialog-content">
-                <div class="product-cell image">
-                  <img id="productDialogImage" src="" alt="product" />
-                </div>
-                <p id="productDialogDescription"></p>
-                <div class="product-dialog-quantity-wrapper">
-                  <label for="productDialogQuantity">Quantidade:</label>
-                  <input
-                    id="productDialogQuantity"
-                    class="input product-dialog-quantity"
-                    type="number"
-                    min="1"
-                    value="1"
-                  />
+                <div class="product-dialog-status-wrapper">
+                  <label for="productDialogStatus">Status:</label>
+                  <input id="productDialogStatus" class="input product-dialog-status" type="text" />
                 </div>
               </div>
               <div class="dialog-footer">
-                <button id="addOrderBtn" class="btn">
-                  Adicionar ao carrinho
+                <button id="updateOrderBtn" class="btn">
+                  Confirmar
                 </button>
               </div>
             </div>
@@ -267,46 +182,6 @@
               </svg>
             </button>
           </dialog>
-        </div>
-
-        <!-- ORDERS -->
-        <div class="products-area-wrapper tableView">
-          <!-- ASSOCIATED TABLE -->
-          <div class="products-table">
-            <label for="associatedTableInput">Mesa associada:</label>
-            <div id="tableInputWrapper" class="table-input-wrapper active">
-              <input
-                id="associatedTableInput"
-                class="input table-input"
-                type="text"
-                placeholder="Insira sua mesa"
-              />
-              <button id="associatedTableBtn" type="button" class="btn">
-                Associar
-              </button>
-            </div>
-            <h2 id="associetedTable" class="associeted-table"></h2>
-          </div>
-
-          <!-- ORDERS HEADER -->
-          <div class="products-header">
-            <div class="product-cell image">Item</div>
-            <div class="product-cell status-cell">Status</div>
-            <div class="product-cell stock">Quantidade</div>
-            <div class="product-cell price">Preço</div>
-            <div class="product-cell actions">Ações</div>
-          </div>
-
-          <!-- ORDER ITEMS -->
-          <div id="ordersWrapper"></div>
-
-          <div class="finish-purchase-wrapper">
-            <div class="finish-purchase-price">
-              Total:
-              <span id="totalPrice">R$ 0</span>
-            </div>
-            <button class="btn">Finalizar compra</button>
-          </div>
         </div>
       </div>
     </div>

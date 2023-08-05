@@ -35,23 +35,10 @@ document.querySelector('.list').addEventListener('click', () => {
   document.querySelector('#headerText').innerText = 'Pedidos';
 });
 
-const modeSwitch = document.querySelector('.mode-switch');
-modeSwitch.addEventListener('click', () => {
+document.querySelector('.mode-switch').addEventListener('click', () => {
   document.documentElement.classList.toggle('light');
-  modeSwitch.classList.toggle('active');
+  document.querySelector('.mode-switch').classList.toggle('active');
 });
-
-// TODO: implement later when it happens to be implemented other pages
-// const sidebarLinks = document.querySelectorAll('.sidebar-link');
-
-// sidebarLinks.forEach((link) => {
-//   link.addEventListener('click', () => {
-//     sidebarLinks.forEach((link) => {
-//       link.classList.remove('is-active');
-//     });
-//     link.classList.add('is-active');
-//   });
-// });
 
 window.addEventListener('resize', () => {
   const sidebar = document.querySelector('.sidebar');
@@ -128,14 +115,12 @@ document.querySelector('#addOrderBtn').addEventListener('click', async () => {
   postOrder(order);
 });
 
-document
-  .querySelector('#productDialogQuantity')
-  .addEventListener('change', () => {
-    const quantity = document.querySelector('#productDialogQuantity').value;
-    document.querySelector('#addOrderBtn').dataset.quantity = quantity;
-  });
-
 // DIALOG
+document.querySelector('#productDialogQuantity').addEventListener('change', () => {
+  const quantity = document.querySelector('#productDialogQuantity').value;
+  document.querySelector('#addOrderBtn').dataset.quantity = quantity;
+});
+
 document.querySelector('#productDialog').addEventListener('click', () => {
   setCloseModal();
 });
@@ -144,11 +129,9 @@ document.querySelector('#dialogBody').addEventListener('click', (event) => {
   event.stopPropagation();
 });
 
-document
-  .getElementById('productDialogCloseBtn')
-  .addEventListener('click', () => {
-    setCloseModal();
-  });
+document.getElementById('productDialogCloseBtn').addEventListener('click', () => {
+  setCloseModal();
+});
 
 // FUNCTIONS
 function setCloseModal() {

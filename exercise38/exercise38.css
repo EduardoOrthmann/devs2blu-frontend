@@ -970,3 +970,12 @@ dialog.dialog::backdrop {
 dialog.dialog.active::backdrop {
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+/* KITCHEN */
+html.kitchen .app-content {
+  gap: 2rem;
+}
+
+html.kitchen dialog.dialog .dialog-body {
+  min-height: 20vh;
+}
