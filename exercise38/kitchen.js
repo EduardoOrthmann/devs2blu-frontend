@@ -1,3 +1,5 @@
+const socket = new WebSocket('ws://localhost:3000');
+
 // EVENTS
 document.querySelector('.mode-switch').addEventListener('click', () => {
   document.documentElement.classList.toggle('light');
@@ -45,6 +47,10 @@ document
 
     renderOrders(await getOrders());
   });
+
+socket.addEventListener('message', async () => {
+  renderOrders(await getOrders());
+});
 
 document.addEventListener('DOMContentLoaded', async () => {
   const orders = await getOrders();
@@ -151,6 +157,11 @@ async function updateOrderStatus(orderId, status) {
     });
 
     const order = await response.json();
+    const socket = new WebSocket('ws://localhost:3000');
+    socket.addEventListener('open', () => {
+      socket.send('update');
+    });
+
     return order;
   } catch (error) {
     console.error(error);

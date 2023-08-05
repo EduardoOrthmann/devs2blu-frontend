@@ -1,3 +1,5 @@
+const socket = new WebSocket('ws://localhost:3000');
+
 // EVENTS
 document.querySelector('.jsFilter').addEventListener('click', () => {
   document.querySelector('.filter-menu').classList.toggle('active');
@@ -47,6 +49,10 @@ window.addEventListener('resize', () => {
   } else {
     sidebar.classList.add('collapse');
   }
+});
+
+socket.addEventListener('message', async () => {
+  renderOrders(await getOrders());
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -324,6 +330,11 @@ async function postOrder(order) {
       }),
     });
 
+    const socket = new WebSocket('ws://localhost:3000');
+    socket.addEventListener('open', () => {
+      socket.send('new order');
+    });
+    
     const orders = await getOrders();
     renderOrders(orders);
     if (orders.length === 1) document.querySelector('.list').click();
@@ -387,6 +398,11 @@ async function deleteOrder(id) {
   try {
     await fetch(`${apiURL}/orders/${id}`, {
       method: 'DELETE',
+    });
+
+    const socket = new WebSocket('ws://localhost:3000');
+    socket.addEventListener('open', () => {
+      socket.send('delete');
     });
   } catch (error) {
     console.error(error);
