@@ -6,7 +6,12 @@
     <title>Ravin</title>
     <link rel="stylesheet" href="exercise38.css" />
     <script src="exercise38.js" defer></script>
-    <base href="/devs2blu-frontend/" />
+    <script>
+      const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+      const baseUrl = isLocalhost ? "/" : "/devs2blu-frontend/";
+  
+      document.write('<base href="' + baseUrl + '" />');
+    </script>
   </head>
 
   <body>
@@ -45,7 +50,7 @@
             </a>
           </li>
           <li class="sidebar-list-item active">
-            <a href="/exercise38/exercise38.html">
+            <a href="exercise38/exercise38.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -66,7 +71,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="/exercise38/kitchen.html">
+            <a href="exercise38/kitchen.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
